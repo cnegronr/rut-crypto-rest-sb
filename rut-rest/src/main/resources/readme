@@ -1,0 +1,52 @@
+Lógica implementada sólo para requerimiento con datos de prueba proporcionados, mínimo control de errores, no controla casos de borde
+implementación básica con spring boot starter project web (import maven project from pom.xml), dependencias adicionales 
+para manipulación de JSON con jackson y org.json (ver pom.xml)
+
+respuestas esperadas:
+para llamada exitosa por post, Json, 1-9
+
+{
+    "result": {
+        "registerCount": 3
+    },
+    "description": "OK",
+    "responseCode": "0",
+    "elapsedTime": 17
+}
+
+para llamada con parámetro erróneo post:
+
+{
+    "error: ": "bad request",
+    "message: ": "Please refer to readme file"
+}
+
+para llamada errónea post:
+
+{
+    "timestamp": "2018-10-27T09:14:30.233+0000",
+    "status": 400,
+    "error": "Bad Request",
+    "message": "JSON parse error: Unexpected character ('d' (code 100)): was expecting comma to separate Object entries; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('d' (code 100)): was expecting comma to separate Object entries\n at [Source: (PushbackInputStream); line: 2, column: 13]",
+    "path": "/postrut"
+}
+
+para llamda a url simple (get):
+Whitelabel Error Page
+
+This application has no explicit mapping for /error, so you are seeing this as a fallback.
+Sat Oct 27 06:15:07 CLT 2018
+There was an unexpected error (type=Method Not Allowed, status=405).
+Request method 'GET' not supported
+
+
+Postman POST request
+URL: localhost:8080/postrut
+Headers
+Content-Type application/json
+
+Body
+
+{
+	"rut": "1-9"
+}
